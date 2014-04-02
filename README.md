@@ -1,3 +1,3 @@
 http://railstutorial.ru/
 
-Алиса, не сочкуй! Пиши диплом!
+Alice! Don't fuck up!
