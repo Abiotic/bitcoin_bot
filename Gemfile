@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'ruby-vircurex'
+
 gem 'btce'
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
 
