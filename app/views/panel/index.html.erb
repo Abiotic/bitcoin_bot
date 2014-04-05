@@ -1,16 +1,28 @@
-<div style="width:500px">
-	<table class="table table-striped">
-	  <tr>
-	  	<td>USD/Btc BUY</td>
-	  	<td>USD/Btc SELL</td>
-
-	  	<td>USD/Virxurex BUY</td>
-
-
-	  </tr>
-	  <tr>
-	  	<td><%= @ticker_hash["buy"] %></td>
-	  	<td><%= @ticker_hash["sell"] %></td>
-	  </tr>
-	</table>
+<div class="row">
+	<div class="col-lg-6">
+		<h3>Btc-e exchange</h3>
+		<table class="table table-striped">
+		  <tr>
+		  	<td>USD/Btc BUY</td>
+		  	<td>USD/Btc SELL</td>
+		  </tr>
+		  <tr>
+		  	<td><%= @ticker_hash["buy"] %></td>
+		  	<td><%= @ticker_hash["sell"] %></td>
+		  </tr>
+		</table>
+	</div>
+	<div class="col-lg-6">
+		<h3>Virxurex exchange</h3>
+		<table class="table table-striped">
+		  <tr>
+		  	<td>USD/Btc BUY</td>
+		  	<td>USD/Btc SELL</td>
+		  </tr>
+		  <tr>
+		  	<td><%= @ticker_hash["buy"] %></td>
+		  	<td><%= @ticker_hash["sell"] %></td>
+		  </tr>
+		</table>
+	</div>
 </div>
