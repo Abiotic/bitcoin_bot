@@ -6,21 +6,25 @@
 		  	<td style="width:45px"></td>
 		  	<td>BUY</td>
 		  	<td>SELL</td>
+		  	<td>UPDATED AT</td>
 		  </tr>
 		  <tr>
 		  	<td style="background-color:#ddd">USD</td>
 		  	<td><%= @btc_usd["buy"] %></td>
-		  	<td><%= @btc_usd["sell"] %></td>
+		  	<td><%= @btc_eur["sell"] %></td>
+		  	<td><%= (DateTime.parse(Time.at(@btc_usd["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 		  </tr>
 		  <tr>
 		  	<td style="background-color:#ddd">EUR</td>
 		  	<td><%= @btc_eur["buy"] %></td>
 		  	<td><%= @btc_eur["sell"] %></td>
+		  	<td><%= (DateTime.parse(Time.at(@btc_eur["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 		  </tr>
 		  <tr>
 		  	<td style="background-color:#ddd">RUR</td>
 		  	<td><%= @btc_rur["buy"] %></td>
 		  	<td><%= @btc_rur["sell"] %></td>
+		  	<td><%= (DateTime.parse(Time.at(@btc_rur["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 		  </tr>
 		</table>
 	</div>
@@ -31,21 +35,24 @@
 		  	<td style="width:45px"></td>
 		  	<td>BUY</td>
 		  	<td>SELL</td>
+		  	<td>UPDATED AT</td>
 		  </tr>
 		  <tr>
 		  	<td style="background-color:#ddd">USD</td>
 		  	<td><%= @btc_usd["buy"] %></td>
 		  	<td><%= @btc_usd["sell"] %></td>
+		  	<td><%= (DateTime.parse(Time.at(@btc_usd["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 		  </tr>
 		  <tr>
 		  	<td style="background-color:#ddd">EUR</td>
 		  	<td><%= @btc_eur["buy"] %></td>
 		  	<td><%= @btc_eur["sell"] %></td>
-		  </tr>
+		  	<td><%= (DateTime.parse(Time.at(@btc_eur["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 		  <tr>
 		  	<td style="background-color:#ddd">RUR</td>
 		  	<td><%= @btc_rur["buy"] %></td>
 		  	<td><%= @btc_rur["sell"] %></td>
+		  	<td><%= (DateTime.parse(Time.at(@btc_rur["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 		  </tr>
 		</table>
 	</div>
