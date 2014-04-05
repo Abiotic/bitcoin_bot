@@ -3,12 +3,24 @@
 		<h3>Btc-e exchange</h3>
 		<table class="table table-striped">
 		  <tr>
-		  	<td>USD/Btc BUY</td>
-		  	<td>USD/Btc SELL</td>
+		  	<td style="width:45px"></td>
+		  	<td>BUY</td>
+		  	<td>SELL</td>
 		  </tr>
 		  <tr>
-		  	<td><%= @ticker_hash["buy"] %></td>
-		  	<td><%= @ticker_hash["sell"] %></td>
+		  	<td style="background-color:#ddd">USD</td>
+		  	<td><%= @btc_usd["buy"] %></td>
+		  	<td><%= @btc_usd["sell"] %></td>
+		  </tr>
+		  <tr>
+		  	<td style="background-color:#ddd">EUR</td>
+		  	<td><%= @btc_eur["buy"] %></td>
+		  	<td><%= @btc_eur["sell"] %></td>
+		  </tr>
+		  <tr>
+		  	<td style="background-color:#ddd">RUR</td>
+		  	<td><%= @btc_rur["buy"] %></td>
+		  	<td><%= @btc_rur["sell"] %></td>
 		  </tr>
 		</table>
 	</div>
@@ -16,12 +28,24 @@
 		<h3>Virxurex exchange</h3>
 		<table class="table table-striped">
 		  <tr>
-		  	<td>USD/Btc BUY</td>
-		  	<td>USD/Btc SELL</td>
+		  	<td style="width:45px"></td>
+		  	<td>BUY</td>
+		  	<td>SELL</td>
 		  </tr>
 		  <tr>
-		  	<td><%= @ticker_hash["buy"] %></td>
-		  	<td><%= @ticker_hash["sell"] %></td>
+		  	<td style="background-color:#ddd">USD</td>
+		  	<td><%= @btc_usd["buy"] %></td>
+		  	<td><%= @btc_usd["sell"] %></td>
+		  </tr>
+		  <tr>
+		  	<td style="background-color:#ddd">EUR</td>
+		  	<td><%= @btc_eur["buy"] %></td>
+		  	<td><%= @btc_eur["sell"] %></td>
+		  </tr>
+		  <tr>
+		  	<td style="background-color:#ddd">RUR</td>
+		  	<td><%= @btc_rur["buy"] %></td>
+		  	<td><%= @btc_rur["sell"] %></td>
 		  </tr>
 		</table>
 	</div>
