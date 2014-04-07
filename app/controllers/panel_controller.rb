@@ -8,7 +8,11 @@ class PanelController < ApplicationController
 		@btc_eur = ticker_eur.json["btc_eur"]
 
 		ticker_rur = Btce::Ticker.new "btc_rur"
-		@btc_rur = ticker_rur.json["btc_rur"]		
+		@btc_rur = ticker_rur.json["btc_rur"]	
+
+
+		bitstamp_ticker = Bitstamp::Ticker.new"btc_usd"
+		@btc_usd1 = ticker_usd.json["btc_usd"]	
 	end
 
 end

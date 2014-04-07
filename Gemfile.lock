@@ -30,6 +30,11 @@ GEM
       sass (>= 3.2)
     arel (4.0.2)
     atomic (1.1.16)
+    bitstamp (0.3.0)
+      activemodel (>= 3.1)
+      activesupport (>= 3.1)
+      curb (> 0.8.1)
+      ruby-hmac (= 0.4.0)
     btce (0.5.1)
       monkey-patch
     builder (3.1.4)
@@ -40,9 +45,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    cryptsy-api (0.1.2)
+      httparty
+      json
+    curb (0.8.5)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -59,6 +71,7 @@ GEM
     monkey-patch (0.0.16)
       activesupport
     multi_json (1.9.2)
+    multi_xml (0.5.5)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -79,6 +92,7 @@ GEM
     rake (10.2.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    ruby-hmac (0.4.0)
     ruby-vircurex (0.0.3)
     sass (3.2.18)
     sass-rails (4.0.2)
@@ -118,8 +132,10 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails (~> 3.0.3.0)
+  bitstamp
   btce
   coffee-rails (~> 4.0.0)
+  cryptsy-api
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.2)
