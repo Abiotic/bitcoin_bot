@@ -1,8 +1,8 @@
 class PanelController < ApplicationController
 
 	def index
-		ticker_usd = Btce::Ticker.new "btc_usd"
-		@btce_btc_usd = ticker_usd.json["btc_usd"]
+		ticker_ltc = Btce::Ticker.new "btc_ltc"
+		@btce_btc_ltc = ticker_usd.json["btc_ltc]
 
 		ticker_eur = Btce::Ticker.new "btc_eur"
 		@btce_btc_eur = ticker_eur.json["btc_eur"]
