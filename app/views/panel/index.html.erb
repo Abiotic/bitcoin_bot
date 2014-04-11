@@ -12,10 +12,10 @@
 		  </thead>
 		  <tbody>
 			  <tr>
-			  	<td style="background-color:#ddd">USD</td>
-			  	<td><%= @btce_btc_usd["buy"] %></td>
-			  	<td><%= @btce_btc_eur["sell"] %></td>
-			  	<td><%= (DateTime.parse(Time.at(@btce_btc_usd["updated"]).to_s)).strftime("%I:%M:%S") %></td>
+			  	<td style="background-color:#ddd">LTC</td>
+			  	<td><%= @btce_btc_ltc["buy"] %></td>
+			  	<td><%= @btce_btc_ltc["sell"] %></td>
+			  	<td><%= (DateTime.parse(Time.at(@btce_btc_ltc["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 			  </tr>
 			  <tr>
 			  	<td style="background-color:#ddd">EUR</td>
