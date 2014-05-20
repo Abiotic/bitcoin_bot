@@ -1,9 +1,9 @@
 class PanelController < ApplicationController
-	require 'timers'
 
 	def index
 		ticker_ltc = Btce::Ticker.new "ltc_btc"
 		@btce_btc_ltc = ticker_ltc.json["ltc_btc"]
+		logger.debug "=========#{@btce_btc_ltc}"
 
 		ticker_eur = Btce::Ticker.new "btc_eur"
 		@btce_btc_eur = ticker_eur.json["btc_eur"]
@@ -19,12 +19,18 @@ class PanelController < ApplicationController
 		
 	end
 
-	def update_chart
-		timers = Timers.new
-		every_five_seconds = timers.every(1) { 
-			logger.debug "1 sec"
-		}
-		loop { timers.wait }
+	def update_currencys
+		currency = Currency.new
+		currency.btc_rur_cource = Btce::Ticker.new("btc_rur").json["btc_rur"]
+		currency.btc_eur_cource = Btce::Ticker.new("btc_eur").json["btc_eur"]
+		currency.btc_usd_cource = Btce::Ticker.new("btc_usd").json["btc_usd"]
+		currency.ltc_btc_cource = Btce::Ticker.new("ltc_btc").json["ltc_btc"]
+		currency.xpm_btc_cource = Btce::Ticker.new("xmp_btc").json["xmp_btc"]
+		currency.nmc_btc_cource = Btce::Ticker.new("nmc_btc").json["nmc_btc"]
+		currency.query_time = Time.now
+		if currency.save
+			logger.debug "Currencies has been updated at #{currency.query_time}"
+		end
 	end
 
 end

@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20140520150858) do
 
   create_table "currencies", force: true do |t|
-    t.float    "btc_rur_cource"
-    t.float    "btc_eur_cource"
-    t.float    "btc_usd_cource"
-    t.float    "ltc_btc_cource"
-    t.float    "xpm_btc_cource"
-    t.float    "nmc_btc_cource"
+    t.string   "btc_rur_cource"
+    t.string   "btc_eur_cource"
+    t.string   "btc_usd_cource"
+    t.string   "ltc_btc_cource"
+    t.string   "xpm_btc_cource"
+    t.string   "nmc_btc_cource"
     t.datetime "query_time"
     t.datetime "created_at"
     t.datetime "updated_at"
