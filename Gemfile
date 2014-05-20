@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'btce'
 gem 'httparty'
 
-
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

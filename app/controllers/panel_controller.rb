@@ -1,4 +1,5 @@
 class PanelController < ApplicationController
+	require 'timers'
 
 	def index
 		ticker_ltc = Btce::Ticker.new "ltc_btc"
@@ -14,6 +15,16 @@ class PanelController < ApplicationController
 		vircurex = Vircurex.send_request "get_info_for_currency" # сделал небольшую обертку. создал класс vircurex.rb в моделях. и там метод send_request, куда передается строчка с запросом API. пока так работает, но нужно будет переделать метод, когда понадобится передавать параметры
 		@virx_btc = vircurex["BTC"] # тут создаем переменную экземпляра, чтобы можно было ее юзать во вьюхе index.html. я взял инфу только о BTC (биткоинах)
 		# в response не похожий на btc-e вывод. там нет ни sell ни buy. нужно правильный API запрос сделать. это уже твои знания предметной области должны быть. ты лучше знаешь что запрашивать у биржи
+	
+		
+	end
+
+	def update_chart
+		timers = Timers.new
+		every_five_seconds = timers.every(1) { 
+			logger.debug "1 sec"
+		}
+		loop { timers.wait }
 	end
 
 end
