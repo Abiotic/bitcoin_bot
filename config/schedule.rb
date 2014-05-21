@@ -1,4 +1,5 @@
-every 1.minutes do
-	runner "update_currencies"
+every 1.minute do
+	runner "ScheduleChecker.update_currencies"
 end
 
+set :output, 'log/update_currencies.log'

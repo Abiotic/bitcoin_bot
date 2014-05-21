@@ -19,18 +19,4 @@ class PanelController < ApplicationController
 		
 	end
 
-	def update_currencies
-		currency = Currency.new
-		currency.btc_rur_cource = Btce::Ticker.new("btc_rur").json["btc_rur"]
-		currency.btc_eur_cource = Btce::Ticker.new("btc_eur").json["btc_eur"]
-		currency.btc_usd_cource = Btce::Ticker.new("btc_usd").json["btc_usd"]
-		currency.ltc_btc_cource = Btce::Ticker.new("ltc_btc").json["ltc_btc"]
-		currency.xpm_btc_cource = Btce::Ticker.new("xmp_btc").json["xmp_btc"]
-		currency.nmc_btc_cource = Btce::Ticker.new("nmc_btc").json["nmc_btc"]
-		currency.query_time = Time.now
-		if currency.save
-			logger.debug "Currencies has been updated at #{currency.query_time}"
-		end
-	end
-
 end
