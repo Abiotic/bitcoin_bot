@@ -5,6 +5,7 @@ gem 'btce'
 gem 'httparty'
 gem 'annotate'
 
+gem 'whenever', :require => false
 
 gem 'anjlab-bootstrap-rails', '~> 3.0.3.0', :require => 'bootstrap-rails'
 

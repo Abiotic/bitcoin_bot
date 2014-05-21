@@ -19,7 +19,7 @@ class PanelController < ApplicationController
 		
 	end
 
-	def update_currencys
+	def update_currencies
 		currency = Currency.new
 		currency.btc_rur_cource = Btce::Ticker.new("btc_rur").json["btc_rur"]
 		currency.btc_eur_cource = Btce::Ticker.new("btc_eur").json["btc_eur"]
