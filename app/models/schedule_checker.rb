@@ -7,7 +7,7 @@ class ScheduleChecker
 		currency.btc_eur_cource = Btce::Ticker.new("btc_eur").json["btc_eur"].to_s
 		currency.btc_usd_cource = Btce::Ticker.new("btc_usd").json["btc_usd"].to_s
 		currency.ltc_btc_cource = Btce::Ticker.new("ltc_btc").json["ltc_btc"].to_s
-		# currency.xpm_btc_cource = Btce::Ticker.new("xmp_btc").json["xmp_btc"].to_s
+		currency.xpm_btc_cource = Btce::Ticker.new("xpm_btc").json["xpm_btc"].to_s
 		currency.nmc_btc_cource = Btce::Ticker.new("nmc_btc").json["nmc_btc"].to_s
 		currency.query_time = Time.now
 		if currency.save
