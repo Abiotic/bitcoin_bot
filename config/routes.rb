@@ -5,4 +5,6 @@ BitcoinBot::Application.routes.draw do
   # panel
   match '/panel' => 'panel#index', as: :panel, via: :get
 
+  match '/update_currency_graph' => 'panel#update_currency_graph', as: :update_currency_graph, via: :post, defaults: { format: :json }
+
 end

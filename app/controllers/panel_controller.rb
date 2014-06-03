@@ -1,8 +1,9 @@
 class PanelController < ApplicationController
 
 	def index
-		ticker_ltc = Btce::Ticker.new "ltc_btc"
-		@btce_btc_ltc = ticker_ltc.json["ltc_btc"]
+
+		ticker_usd = Btce::Ticker.new "btc_usd"
+		@btce_btc_usd = ticker_usd.json["btc_usd"]
 
 		ticker_eur = Btce::Ticker.new "btc_eur"
 		@btce_btc_eur = ticker_eur.json["btc_eur"]
@@ -10,19 +11,18 @@ class PanelController < ApplicationController
 		ticker_rur = Btce::Ticker.new "btc_rur"
 		@btce_btc_rur = ticker_rur.json["btc_rur"]
 
-		# response = HTTParty.get("https://api.vircurex.com/api/get_info_for_currency.json") # прикольная библиотека, облегчающая жизнь HTTParty. здесь запрос по через апи делаем. в response json объект
-		vircurex = Vircurex.send_request "get_info_for_currency" # сделал небольшую обертку. создал класс vircurex.rb в моделях. и там метод send_request, куда передается строчка с запросом API. пока так работает, но нужно будет переделать метод, когда понадобится передавать параметры
-		@virx_btc = vircurex["BTC"] # тут создаем переменную экземпляра, чтобы можно было ее юзать во вьюхе index.html. я взял инфу только о BTC (биткоинах)
-		# в response не похожий на btc-e вывод. там нет ни sell ни buy. нужно правильный API запрос сделать. это уже твои знания предметной области должны быть. ты лучше знаешь что запрашивать у биржи
-	
-		currencies = Currency.last(20)
-		
-		
+		vircurex = Vircurex.send_request "get_info_for_currency" 
+		@virx_btc = vircurex["BTC"]
 
-		@cur_to_graph = []
+	end
 
+	def update_currency_graph
+		currencies = Currency.last(100)
+		cur_to_graph = []
+		
 		currencies.each do |currency|
-			cur =  {btc_rur_cource: "", 
+			
+			cur = { btc_rur_cource: "", 
 				 	btc_usd_cource: "",
 				 	btc_eur_cource: "",
 					xpm_btc_cource: "",
@@ -40,17 +40,19 @@ class PanelController < ApplicationController
 			cur[:query_time] = currency.query_time
 
 			logger.debug "===============#{eval(currency.btc_rur_cource)["last"]}"
-			@cur_to_graph << cur
-			
+			cur_to_graph << cur
+				
 		end
 
 		# @cur = @cur.to_json
 		# replace(/&quot;/g,'"')
 		logger.debug "===============#{@cur_to_graph}"
 
-		@cur_to_graph = @cur_to_graph.to_json
+		cur_to_graph = cur_to_graph.to_json
 
-
+		respond_to do |format|
+                format.json { render json: cur_to_graph }
+        end
 	end
 
 end
