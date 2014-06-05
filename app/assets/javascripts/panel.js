@@ -26,7 +26,21 @@ function updateGraph(currencies) {
 		course_graph_eur.push([i,currencies[i].btc_eur_cource]);
 	}
 
-	$.plot("#chart", [ course_graph_usd ]);
+	$.plot("#chart", [ course_graph_usd ], {
+		xaxis: {
+			mode: "time",
+			timeFormat: "%H:%M%S",
+			font: {
+				size: 10,
+				color: "grey"
+			}
+		},
+		yaxes: [ { tickFormatter: usdFormatter } ],
+	});
+
+	function usdFormatter(v, axis) {
+		return  "$" + v.toFixed(axis.tickDecimals);
+	}
 }
 
 function update_currency_graph_result(response){

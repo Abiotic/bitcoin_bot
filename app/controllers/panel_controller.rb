@@ -17,20 +17,19 @@ class PanelController < ApplicationController
 	end
 
 	def update_currency_graph
-		currencies = Currency.last(100)
+		currencies = Currency.where('query_time > ?', Time.now - 1.day)
 		cur_to_graph = []
 		
 		currencies.each do |currency|
-			
-			cur = { btc_rur_cource: "", 
+			cur = { 
+					btc_rur_cource: "", 
 				 	btc_usd_cource: "",
 				 	btc_eur_cource: "",
 					xpm_btc_cource: "",
 				 	ltc_btc_cource: "",
 				 	nmc_btc_cource: "",
 				 	query_time: "",
-				 }
-
+				  }
 			cur[:btc_rur_cource] = eval(currency.btc_rur_cource)["last"]
 			cur[:btc_usd_cource] = eval(currency.btc_usd_cource)["last"]
 			cur[:btc_eur_cource] = eval(currency.btc_eur_cource)["last"]
@@ -38,15 +37,8 @@ class PanelController < ApplicationController
 			cur[:ltc_btc_cource] = eval(currency.ltc_btc_cource)["last"]
 			cur[:nmc_btc_cource] = eval(currency.nmc_btc_cource)["last"]
 			cur[:query_time] = currency.query_time
-
-			logger.debug "===============#{eval(currency.btc_rur_cource)["last"]}"
 			cur_to_graph << cur
-				
 		end
-
-		# @cur = @cur.to_json
-		# replace(/&quot;/g,'"')
-		logger.debug "===============#{@cur_to_graph}"
 
 		cur_to_graph = cur_to_graph.to_json
 
