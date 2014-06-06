@@ -22,20 +22,11 @@ class PanelController < ApplicationController
 		
 		currencies.each do |currency|
 			cur = { 
-					btc_rur_cource: "", 
-				 	btc_usd_cource: "",
-				 	btc_eur_cource: "",
-					xpm_btc_cource: "",
-				 	ltc_btc_cource: "",
-				 	nmc_btc_cource: "",
+					course: "btc_usd_cource", 
 				 	query_time: "",
 				  }
-			cur[:btc_rur_cource] = eval(currency.btc_rur_cource)["last"]
-			cur[:btc_usd_cource] = eval(currency.btc_usd_cource)["last"]
-			cur[:btc_eur_cource] = eval(currency.btc_eur_cource)["last"]
-			cur[:xpm_btc_cource] = eval(currency.xpm_btc_cource)["last"]
-			cur[:ltc_btc_cource] = eval(currency.ltc_btc_cource)["last"]
-			cur[:nmc_btc_cource] = eval(currency.nmc_btc_cource)["last"]
+
+			cur[:course] = params[:course] == "" ? eval(currency.btc_usd_cource)["last"] : eval(currency.send(params[:course]))["last"]
 			cur[:query_time] = currency.query_time
 			cur_to_graph << cur
 		end
@@ -46,5 +37,6 @@ class PanelController < ApplicationController
                 format.json { render json: cur_to_graph }
         end
 	end
+
 
 end

@@ -3,44 +3,58 @@
 
 $(function() {
 
+	$('.choose_course').click(function(){
+		$('#course').val($(this).val());
+
+	});
+
 	$('#update_currency_graph').ajaxForm({
 		success: update_currency_graph_result,
 		beforeSubmit: update_currency_graph_before_submit
 	});
 
-	$('#update_graph').click(function(){
-		$('#update_currency_graph').submit();
-	});
 
 	$('#update_currency_graph').submit();
 
 });
 
-function updateGraph(currencies) {
+function updateGraph(data) {
 
-	var course_graph_usd = [];
-	var course_graph_eur = [];
+	var course_graph = [];
 
-	for (var i = 0; i < currencies.length; i++) {
-		course_graph_usd.push([i,currencies[i].btc_usd_cource]);
-		course_graph_eur.push([i,currencies[i].btc_eur_cource]);
+	for (var i = 0; i < data.length; i++) {
+		course_graph.push([i,data[i].course]);
 	}
 
-	$.plot("#chart", [ course_graph_usd ], {
+	$.plot("#chart", [
+				{ data: course_graph, label: parseCurrencyName($('#course').val()) },
+				],{
 		xaxis: {
 			mode: "time",
-			timeFormat: "%H:%M%S",
 			font: {
 				size: 10,
 				color: "grey"
 			}
 		},
-		yaxes: [ { tickFormatter: usdFormatter } ],
+		series: {
+			color: "#aaa",
+			lines: {
+				lineWidth: 2
+			},
+			shadowSize: 0
+		},
+		grid: {
+			borderWidth: 1,
+			minBorderMargin: 0,
+			labelMargin: 4,
+			backgroundColor: "#fff"
+		}
 	});
 
-	function usdFormatter(v, axis) {
-		return  "$" + v.toFixed(axis.tickDecimals);
-	}
+}
+
+function parseCurrencyName(cur) {
+	return cur.slice(0, 3).toUpperCase() + "/" +  cur.slice(4,7).toUpperCase();
 }
 
 function update_currency_graph_result(response){
