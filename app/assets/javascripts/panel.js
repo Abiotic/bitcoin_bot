@@ -18,12 +18,16 @@ $(function() {
 
 });
 
+function float_to_time(v) {
+	return parseFloat(v) * 1000;
+}
+
 function updateGraph(data) {
 
 	var course_graph = [];
 
 	for (var i = 0; i < data.length; i++) {
-		course_graph.push([i,data[i].course]);
+		course_graph.push([float_to_time(data[i].query_time),data[i].course]);
 	}
 
 	$.plot("#chart", [

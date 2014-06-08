@@ -22,12 +22,12 @@ class PanelController < ApplicationController
 		
 		currencies.each do |currency|
 			cur = { 
-					course: "btc_usd_cource", 
+					course: "", 
 				 	query_time: "",
 				  }
 
 			cur[:course] = params[:course] == "" ? eval(currency.btc_usd_cource)["last"] : eval(currency.send(params[:course]))["last"]
-			cur[:query_time] = currency.query_time
+			cur[:query_time] = currency.query_time.to_i * 1000
 			cur_to_graph << cur
 		end
 
