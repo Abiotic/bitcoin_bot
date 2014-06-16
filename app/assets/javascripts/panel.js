@@ -5,7 +5,6 @@ $(function() {
 
 	$('.choose_course').click(function(){
 		$('#course').val($(this).val());
-
 	});
 
 	$('#update_currency_graph').ajaxForm({

@@ -3,14 +3,18 @@
 </script>
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg-12">
 		<h3>Btc-e BTC exchange</h3>
 		<table class="table table-striped">
 		  <thead style="background-color:#eee">
 			  <tr>
-			  	<td style="width:45px"></td>
+			  	<td style="width:50px"></td>
 			  	<td>BUY</td>
 			  	<td>SELL</td>
+			  	<td>HIGH</td>
+			  	<td>LOW</td>
+			  	<td>AVERAGE</td>
+			  	<td>LAST</td>
 			  	<td>UPDATED AT</td>
 			  </tr>
 		  </thead>
@@ -19,52 +23,31 @@
 			  	<td style="background-color:#ddd">USD</td>
 			  	<td><%= @btce_btc_usd["buy"] %></td>
 			  	<td><%= @btce_btc_usd["sell"] %></td>
+			  	<td><%= @btce_btc_usd["high"] %></td>
+			  	<td><%= @btce_btc_usd["low"] %></td>
+			  	<td><%= @btce_btc_usd["avg"] %></td>
+			  	<td><%= @btce_btc_usd["last"] %></td>
 			  	<td><%= (DateTime.parse(Time.at(@btce_btc_usd["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 			  </tr>
 			  <tr>
 			  	<td style="background-color:#ddd">EUR</td>
 			  	<td><%= @btce_btc_eur["buy"] %></td>
 			  	<td><%= @btce_btc_eur["sell"] %></td>
+			  	<td><%= @btce_btc_eur["high"] %></td>
+			  	<td><%= @btce_btc_eur["low"] %></td>
+			  	<td><%= @btce_btc_eur["avg"] %></td>
+			  	<td><%= @btce_btc_eur["last"] %></td>
 			  	<td><%= (DateTime.parse(Time.at(@btce_btc_eur["updated"]).to_s)).strftime("%I:%M:%S") %></td>
 			  </tr>
 			  <tr>
 			  	<td style="background-color:#ddd">RUR</td>
 			  	<td><%= @btce_btc_rur["buy"] %></td>
 			  	<td><%= @btce_btc_rur["sell"] %></td>
+			  	<td><%= @btce_btc_rur["high"] %></td>
+			  	<td><%= @btce_btc_rur["low"] %></td>
+			  	<td><%= @btce_btc_rur["avg"] %></td>
+			  	<td><%= @btce_btc_rur["last"] %></td>
 			  	<td><%= (DateTime.parse(Time.at(@btce_btc_rur["updated"]).to_s)).strftime("%I:%M:%S") %></td>
-			  </tr>
-		  </tbody>
-		</table>
-	</div>
-	<div class="col-lg-6">
-		<h3>Virxurex BTC exchange</h3>
-		<table class="table table-striped">
-		  <thead style="background-color:#eee">
-			  <tr>
-			  	<td style="width:45px"></td>
-			  	<td>LOWEST ASK</td>
-			  	<td>HIGHEST BID</td>
-			  	<td>UPDATED AT</td>
-			  </tr>
-		  </thead>
-		  <tbody>
-			  <tr>
-			  	<td style="background-color:#ddd">USD</td>
-			  	<td><%= @virx_btc["USD"]["lowest_ask"] %></td>
-			  	<td><%= @virx_btc["USD"]["highest_bid"] %></td>
-			  	<td>N/A</td>
-			  </tr>
-			  <tr>
-			  	<td style="background-color:#ddd">EUR</td>
-			  	<td><%= @virx_btc["EUR"]["lowest_ask"] %></td>
-			  	<td><%= @virx_btc["EUR"]["highest_bid"] %></td>
-			  	<td>N/A</td>
-			  </tr>
-			  <tr>
-			  	<td style="background-color:#ddd">RUR</td>
-			  	<td>N/A</td>
-			  	<td>N/A</td>
-			  	<td>N/A</td>
 			  </tr>
 		  </tbody>
 		</table>

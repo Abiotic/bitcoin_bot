@@ -17,6 +17,7 @@ class PanelController < ApplicationController
 	end
 
 	def update_currency_graph
+
 		currencies = Currency.where('query_time > ?', Time.now - 1.day)
 		cur_to_graph = []
 		
@@ -27,7 +28,7 @@ class PanelController < ApplicationController
 				  }
 
 			cur[:course] = params[:course] == "" ? eval(currency.btc_usd_cource)["last"] : eval(currency.send(params[:course]))["last"]
-			cur[:query_time] = currency.query_time.to_i * 1000
+			cur[:query_time] = currency.query_time.to_i
 			cur_to_graph << cur
 		end
 
