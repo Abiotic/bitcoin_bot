@@ -1,6 +1,7 @@
 class GetInfo
 	def index
 		require 'btce'
-		info = Btce::TradeAPI.new_from_keyfile.get_info
-		
+		info = Btce::TradeAPI.apikey.get_info
+		logger.debug "ololo"
 	end
+end

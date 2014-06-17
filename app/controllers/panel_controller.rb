@@ -17,7 +17,6 @@ class PanelController < ApplicationController
 	end
 
 	def update_currency_graph
-
 		currencies = Currency.where('query_time > ?', Time.now - 1.day)
 		cur_to_graph = []
 		
